@@ -8,6 +8,7 @@ class Opinion(db.Model):
     title = db.Column(db.String(128), nullable=False)
     text = db.Column(db.Text, unique=True, nullable=False)
     source = db.Column(db.String(256))
+    images = db.Column(db.JSON)
     timestamp = db.Column(
         db.DateTime,
         index=True,
@@ -22,6 +23,7 @@ class Opinion(db.Model):
             title=self.title,
             text=self.text,
             source=self.source,
+            images=self.images,
             timestamp=self.timestamp,
             added_by=self.added_by
         )
